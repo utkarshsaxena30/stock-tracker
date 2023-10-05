@@ -1,0 +1,8 @@
+.content__ContentArea {
+  padding: 0 50px;
+  height: calc(100dvh - 128px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}

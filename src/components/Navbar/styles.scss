@@ -1,0 +1,13 @@
+.header__Navbar {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.logo_title__Navbar {
+  display: flex;
+  gap: 1rem;
+  span[role='img'] {
+    font-size: 3rem;
+  }
+}
