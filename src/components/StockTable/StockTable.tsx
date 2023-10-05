@@ -1,5 +1,5 @@
 import { Table, TableProps } from 'antd'
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useFilterProvider } from '../../providers/FilterProvider'
 
 type RecordType = {
@@ -56,24 +56,46 @@ const Columns: TableProps<RecordType>['columns'] = [
   },
 ]
 
-const getData = (timeInterval: string) => {
-  const data: RecordType[] = new Array(500).fill(null).map((_, index) => ({
-    time: `${index * +timeInterval}`,
-    spot: `${index}_spot`,
-    futurePrice: `${index}_futurePrice`,
-    ce: `${index}_ce`,
-    pe: `${index}_pe`,
-    bullish: index & 1 ? 'yes' : 'no',
-    bearish: !(index & 1) ? 'yes' : 'no',
-    futureDivergence: index * 10,
-  }))
+// const getData = (timeInterval: string) => {
+//   const data: RecordType[] = new Array(500).fill(null).map((_, index) => ({
+//     time: `${index * +timeInterval}`,
+//     spot: `${index}_spot`,
+//     futurePrice: `${index}_futurePrice`,
+//     ce: `${index}_ce`,
+//     pe: `${index}_pe`,
+//     bullish: index & 1 ? 'yes' : 'no',
+//     bearish: !(index & 1) ? 'yes' : 'no',
+//     futureDivergence: index * 10,
+//   }))
 
-  return data
-}
+//   return data
+// }
 
 export function StockTable() {
-  const { timeInterval } = useFilterProvider()
-  const data = useMemo(() => getData(timeInterval), [timeInterval])
+  const { symbol, strike } = useFilterProvider()
+  const [data, setData] = useState<RecordType[]>([])
+
+  const memoizedData = useMemo(() => data, [data])
+
+  useEffect(() => {
+    const getDataFromServer = async () => {
+      const response = await fetch(
+        `http://127.0.0.1:8000/options?stock=${symbol}&strike=${strike}&expiry=2023-10-26`
+      )
+      if (!response.ok) {
+        console.error(
+          'Your API request was unsuccessful, please try again later.'
+        )
+        return
+      }
+
+      const _data = await response.json()
+
+      setData(_data)
+    }
+
+    getDataFromServer()
+  }, [symbol, strike])
 
   return (
     <Table
@@ -82,7 +104,7 @@ export function StockTable() {
       columns={Columns}
       scroll={{ y: 400 }}
       rowKey='time'
-      dataSource={data}
+      dataSource={memoizedData}
       pagination={false}
     />
   )
