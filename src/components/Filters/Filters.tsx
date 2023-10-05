@@ -1,43 +1,57 @@
-import { DownOutlined } from '@ant-design/icons'
-import { Button, Dropdown, MenuProps, Space } from 'antd'
 import { useFilterProvider } from '../../providers/FilterProvider'
-
-const items = [
-  {
-    label: '1 second',
-    key: '1',
-  },
-  {
-    label: '3 seconds',
-    key: '3',
-  },
-  {
-    label: '1 minute',
-    key: '60',
-  },
-]
-
-const getItemLabel = (key: string) => {
-  return items.find((item) => item?.key === key)?.label ?? 'Undefined'
-}
+import { SelectBox } from '../FormFields/SelectBox/SelectBox'
+import {
+  EXPIRY_OPTIONS,
+  STRIKE_OPTIONS,
+  SYMBOL_OPTIONS,
+  TIME_INTERVAL_OPTIONS,
+} from './options'
 
 export function Filters() {
-  const { timeInterval, setTimeInterval } = useFilterProvider()
-
-  const handleMenuClick: MenuProps['onClick'] = (e) => {
-    setTimeInterval(e.key)
-  }
+  const {
+    timeInterval,
+    symbol,
+    expiry,
+    strike,
+    setTimeInterval,
+    setSymbol,
+    setExpiry,
+    setStrike,
+  } = useFilterProvider()
 
   return (
-    <div style={{ width: 'max-content' }}>
-      <Dropdown menu={{ items, onClick: handleMenuClick }}>
-        <Button>
-          <Space>
-            <span>Time Interval: {getItemLabel(timeInterval)}</span>
-            <DownOutlined />
-          </Space>
-        </Button>
-      </Dropdown>
+    <div
+      style={{
+        display: 'flex',
+        gap: '1rem',
+        overflowX: 'scroll',
+        paddingBottom: '1rem',
+      }}
+    >
+      <SelectBox<string>
+        initValue={symbol}
+        label='Symbol'
+        options={SYMBOL_OPTIONS}
+        setValue={setSymbol}
+      ></SelectBox>
+      <SelectBox<string>
+        initValue={expiry}
+        label='Expiry'
+        options={EXPIRY_OPTIONS}
+        setValue={setExpiry}
+      ></SelectBox>
+      <SelectBox<number>
+        initValue={strike}
+        label='Strike'
+        options={STRIKE_OPTIONS}
+        setValue={setStrike}
+      ></SelectBox>
+      <SelectBox<string>
+        initValue={timeInterval}
+        label='T/F'
+        options={TIME_INTERVAL_OPTIONS}
+        setValue={setTimeInterval}
+      ></SelectBox>
     </div>
   )
 }
