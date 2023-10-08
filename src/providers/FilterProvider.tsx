@@ -23,9 +23,9 @@ const FilterContext = React.createContext<FilterContextType>(
 
 export function FilterProvider({ children }: { children: ReactNode }) {
   const [timeInterval, setTimeInterval] = useState<string>('1')
-  const [symbol, setSymbol] = useState<string>('HDFCBANK')
+  const [symbol, setSymbol] = useState<string>('NIFTY')
   const [expiry, setExpiry] = useState<string>('OCT 12')
-  const [strike, setStrike] = useState<number>(20100)
+  const [strike, setStrike] = useState<number>(19800)
 
   return (
     <FilterContext.Provider

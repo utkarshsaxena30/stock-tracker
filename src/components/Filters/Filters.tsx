@@ -24,7 +24,7 @@ export function Filters() {
       style={{
         display: 'flex',
         gap: '1rem',
-        overflowX: 'scroll',
+        overflowX: 'auto',
         paddingBottom: '1rem',
       }}
     >

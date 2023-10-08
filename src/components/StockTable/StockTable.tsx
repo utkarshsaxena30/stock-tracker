@@ -8,8 +8,8 @@ type RecordType = {
   futurePrice: string
   ce: string
   pe: string
-  bullish: 'yes' | 'no'
-  bearish: 'yes' | 'no'
+  ce_divergence: 'yes' | 'no'
+  pe_divergence: 'yes' | 'no'
   futureDivergence: number
 }
 
@@ -24,11 +24,11 @@ const Columns: TableProps<RecordType>['columns'] = [
     title: 'Spot',
     dataIndex: 'spot',
   },
-  {
-    key: 'futurePrice',
-    title: 'Future Price',
-    dataIndex: 'futurePrice',
-  },
+  // {
+  //   key: 'futurePrice',
+  //   title: 'Future Price',
+  //   dataIndex: 'futurePrice',
+  // },
   {
     key: 'ce',
     title: 'CE',
@@ -40,20 +40,20 @@ const Columns: TableProps<RecordType>['columns'] = [
     dataIndex: 'pe',
   },
   {
-    key: 'bullish',
-    title: 'Bullish',
-    dataIndex: 'bullish',
+    key: 'ce_divergence',
+    title: 'ce_divergence',
+    dataIndex: 'ce_divergence',
   },
   {
-    key: 'bearish',
-    title: 'Bearish',
-    dataIndex: 'bearish',
+    key: 'pe_divergence',
+    title: 'pe_divergence',
+    dataIndex: 'pe_divergence',
   },
-  {
-    key: 'futureDivergence',
-    title: 'Future Divergence',
-    dataIndex: 'futureDivergence',
-  },
+  // {
+  //   key: 'futureDivergence',
+  //   title: 'Future Divergence',
+  //   dataIndex: 'futureDivergence',
+  // },
 ]
 
 // const getData = (timeInterval: string) => {
@@ -80,7 +80,7 @@ export function StockTable() {
   useEffect(() => {
     const getDataFromServer = async () => {
       const response = await fetch(
-        `http://127.0.0.1:8000/options?stock=${symbol}&strike=${strike}&expiry=2023-10-26`
+        `http://127.0.0.1:8000/options?stock=${symbol}&strike=${strike}&expiry=2023-10-26&time_interval=1`
       )
       if (!response.ok) {
         console.error(
@@ -90,8 +90,8 @@ export function StockTable() {
       }
 
       const _data = await response.json()
-
       setData(_data)
+      // setData(JSON.parse(_data))
     }
 
     getDataFromServer()

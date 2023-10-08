@@ -29,10 +29,6 @@ export const SYMBOL_OPTIONS: { label: string; value: string }[] = [
     value: 'SBIBANK',
   },
   {
-    label: 'NIFTY',
-    value: 'NIFTY',
-  },
-  {
     label: 'BANKNIFTY',
     value: 'BANKNIFTY',
   },
@@ -77,99 +73,99 @@ export const EXPIRY_OPTIONS: { label: string; value: string }[] = [
 ]
 export const STRIKE_OPTIONS: { label: string; value: number }[] = [
   {
-    label: '20122',
-    value: 20122,
+    label: '19800',
+    value: 19800,
   },
-  {
-    label: '20125',
-    value: 20125,
-  },
-  {
-    label: '19532',
-    value: 19532,
-  },
-  {
-    label: '32000',
-    value: 32000,
-  },
-  {
-    label: '20562',
-    value: 20562,
-  },
-  {
-    label: '20100',
-    value: 20100,
-  },
-  {
-    label: '20122',
-    value: 20122,
-  },
-  {
-    label: '20125',
-    value: 20125,
-  },
-  {
-    label: '19532',
-    value: 19532,
-  },
-  {
-    label: '32000',
-    value: 32000,
-  },
-  {
-    label: '20562',
-    value: 20562,
-  },
-  {
-    label: '20100',
-    value: 20100,
-  },
-  {
-    label: '20122',
-    value: 20122,
-  },
-  {
-    label: '20125',
-    value: 20125,
-  },
-  {
-    label: '19532',
-    value: 19532,
-  },
-  {
-    label: '32000',
-    value: 32000,
-  },
-  {
-    label: '20562',
-    value: 20562,
-  },
-  {
-    label: '20100',
-    value: 20100,
-  },
-  {
-    label: '20122',
-    value: 20122,
-  },
-  {
-    label: '20125',
-    value: 20125,
-  },
-  {
-    label: '19532',
-    value: 19532,
-  },
-  {
-    label: '32000',
-    value: 32000,
-  },
-  {
-    label: '20562',
-    value: 20562,
-  },
-  {
-    label: '20100',
-    value: 20100,
-  },
+  // {
+  //   label: '20125',
+  //   value: 20125,
+  // },
+  // {
+  //   label: '19532',
+  //   value: 19532,
+  // },
+  // {
+  //   label: '32000',
+  //   value: 32000,
+  // },
+  // {
+  //   label: '20562',
+  //   value: 20562,
+  // },
+  // {
+  //   label: '20100',
+  //   value: 20100,
+  // },
+  // {
+  //   label: '20122',
+  //   value: 20122,
+  // },
+  // {
+  //   label: '20125',
+  //   value: 20125,
+  // },
+  // {
+  //   label: '19532',
+  //   value: 19532,
+  // },
+  // {
+  //   label: '32000',
+  //   value: 32000,
+  // },
+  // {
+  //   label: '20562',
+  //   value: 20562,
+  // },
+  // {
+  //   label: '20100',
+  //   value: 20100,
+  // },
+  // {
+  //   label: '20122',
+  //   value: 20122,
+  // },
+  // {
+  //   label: '20125',
+  //   value: 20125,
+  // },
+  // {
+  //   label: '19532',
+  //   value: 19532,
+  // },
+  // {
+  //   label: '32000',
+  //   value: 32000,
+  // },
+  // {
+  //   label: '20562',
+  //   value: 20562,
+  // },
+  // {
+  //   label: '20100',
+  //   value: 20100,
+  // },
+  // {
+  //   label: '20122',
+  //   value: 20122,
+  // },
+  // {
+  //   label: '20125',
+  //   value: 20125,
+  // },
+  // {
+  //   label: '19532',
+  //   value: 19532,
+  // },
+  // {
+  //   label: '32000',
+  //   value: 32000,
+  // },
+  // {
+  //   label: '20562',
+  //   value: 20562,
+  // },
+  // {
+  //   label: '20100',
+  //   value: 20100,
+  // },
 ]
