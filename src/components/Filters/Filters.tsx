@@ -26,6 +26,7 @@ export function Filters() {
         gap: '1rem',
         overflowX: 'auto',
         paddingBottom: '1rem',
+        minHeight: '3rem',
       }}
     >
       <SelectBox<string>

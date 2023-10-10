@@ -28,26 +28,6 @@ export const SYMBOL_OPTIONS: { label: string; value: string }[] = [
     label: 'SBIBANK',
     value: 'SBIBANK',
   },
-  {
-    label: 'BANKNIFTY',
-    value: 'BANKNIFTY',
-  },
-  {
-    label: 'FINNIFTY',
-    value: 'FINNIFTY',
-  },
-  {
-    label: 'HDFCBANK',
-    value: 'HDFCBANK',
-  },
-  {
-    label: 'ICICIBANK',
-    value: 'ICICIBANK',
-  },
-  {
-    label: 'SBIBANK',
-    value: 'SBIBANK',
-  },
 ]
 export const EXPIRY_OPTIONS: { label: string; value: string }[] = [
   {

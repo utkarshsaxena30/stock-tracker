@@ -6,11 +6,13 @@ import { FilterProvider } from '../../providers/FilterProvider'
 
 export function ContentArea() {
   return (
-    <Content className='content__ContentArea'>
+    <div className='content__ContentArea'>
       <FilterProvider>
         <Filters />
-        <StockTable />
+        <Content>
+          <StockTable />
+        </Content>
       </FilterProvider>
-    </Content>
+    </div>
   )
 }
