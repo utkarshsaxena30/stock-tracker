@@ -1,16 +1,16 @@
-import { Table, TableProps } from 'antd'
+import { Table, TableProps, message } from 'antd'
 import { useEffect, useMemo, useState } from 'react'
 import { useFilterProvider } from '../../providers/FilterProvider'
 
 type RecordType = {
   time: string
   spot: string
-  futurePrice: string
+  // futurePrice: string
   ce: string
   pe: string
   ce_divergence: 'yes' | 'no'
   pe_divergence: 'yes' | 'no'
-  futureDivergence: number
+  // futureDivergence: number
 }
 
 const Columns: TableProps<RecordType>['columns'] = [
@@ -82,16 +82,16 @@ export function StockTable() {
       const response = await fetch(
         `http://127.0.0.1:8000/options?stock=${symbol}&strike=${strike}&expiry=2023-10-26&time_interval=1`
       )
+
       if (!response.ok) {
-        console.error(
-          'Your API request was unsuccessful, please try again later.'
-        )
+        message.error('GET API options/stock unsuccessful')
         return
       }
 
-      const _data = await response.json()
-      setData(_data)
-      // setData(JSON.parse(_data))
+      const text = await response.text()
+      const json = text ? JSON.parse(text) : {}
+
+      setData(json)
     }
 
     getDataFromServer()
